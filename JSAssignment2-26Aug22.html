@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-Assignment2</title>
+    <h1>JavaScript Assignment2</h1>
+</head>
+<body>
+    <h2>Type of Triangle</h2><br/>
+    <script>
+        function triangle(){
+            var fstsid = document.getElementById('fstside').value;
+            var sndsid = document.getElementById('sndside').value;
+            var thisid = document.getElementById('thiside').value;
+            if (fstsid===sndsid && fstsid===thisid){
+                document.getElementById('output1').value='Equilateral Triangle';
+            }else if (fstsid==sndsid || fstsid==thisid || sndsid==thisid){
+                document.getElementById('output1').value='Isosceles Triangle';
+            }else{
+                document.getElementById('output1').value='Scalene Triangle';
+            }
+        }
+    </script>
+    Enter length of 3 sides of triangle.
+    <input type="number" placeholder="1st" id="fstside" />
+    <input type="number" placeholder="2nd" id="sndside" />
+    <input type="number" placeholder="3rd" id="thiside" /><br/>
+    <button onclick="triangle()" id="Result1">Result</button>
+    <output id="output1">Type of Triangle</output><br/><br/>
+
+    <h2>Grading Tool</h2><br/>
+    <script>
+        function grade(){
+            var grade = document.getElementById('grd').value;
+            grade=Number(grade);
+            if(isNaN(grade)){
+                document.getElementById('output2').value='Invalid marks';
+            }else{
+                switch(true){
+                    case (grade>=91):
+                    document.getElementById('output2').value='S grade';
+                        break;
+                    case (grade>=81):
+                        document.getElementById('output2').value='A grade';
+                        break;
+                    case (grade>=71):
+                        document.getElementById('output2').value='B grade';
+                        break;
+                    case (grade>=61):
+                        document.getElementById('output2').value='C grade';
+                        break;
+                    case (grade>=51):
+                        document.getElementById('output2').value='D grade';
+                        break;
+                    case (grade>=41):
+                        document.getElementById('output2').value='E grade';
+                        break;
+                    default:
+                        document.getElementById('output2').value='Student has failed';
+                        break;
+                }
+            }
+        }
+    </script>
+    <input placeholder='Enter the marks of Student' id="grd"/>
+    <button onclick="grade()" id="output21">Grade</button><br/>
+    <output id="output2">Student Grade</output><br/><br/>
+
+    <h2>Sum of multiples</h2><br/>
+    Sum of multiples of 3 and 5 between 1 and 1000 is
+    <script>
+        function som(){
+            var m3 = 0 ; var m5 = 0;
+            for (let item=1; item<=1000/3; item++){
+                m3+=(3*item);
+            }
+            for (let item=1; item<=1000/5; item++){
+                m5+=(5*item)
+            }
+            document.getElementById('som').value=(m3+m5)
+        }
+    </script>
+    <button onclick="som()">Answer</button>
+    <input id="som"/><br/><br/>
+
+    <h2>Factorial of all Prime in given range</h2>
+    <script>
+        function prime(a){
+            for (let n = 2; n<=(a/2); n++){
+                if (a%n == 0 )
+                    return 'NotPrime';
+            }
+            if (a==2)
+                return 'NotPrime'
+            else
+                return 'Prime'
+        }
+        function fact(a,b){
+            var f = []; var x=1;
+            for (let num = a; num <=b; num++){
+                if (prime(num)=='Prime'){
+                    for (let ab=1;ab<=num;ab++){
+                        x *= ab;
+                    }
+                    f.push(x);
+                    x=1;
+                }
+            }
+            document.getElementById('lout').value=f
+        }
+    </script>
+    Enter starting range <input id="srange"/><br/>
+    Enter ending range <input id="erange"/><br/>
+    <button id="fact" onclick="fact(document.getElementById('srange').value,document.getElementById('erange').value)">Result</button>
+    <output id="lout"></output><br/><br/><br/><br/><br/><br/><br/>
+
+    <footer>
+        <i>Dated = 26 Aug 2022, By Samyant</i> 
+    </footer>
+</body>
+</html>
